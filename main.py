@@ -1,22 +1,26 @@
-def menu_principal():
-    print("\n**calculadora de conversão de unidades**")
-    print("1. converter de comprimento")
-    print("2. converter de temperaturas")
-    print("3. sair ")
-
-    opcao=input("digite A opição desejada: ")
-    return opcao
-def sair():
-    print("encerrando o progama...")
+from conversor_temperaturas import ConversorTemperaturas
+from conversor_medidas import ConvertorMedidas
 
 
-escolha =menu_principal()
+print("1. Centímetros a Metros")
+print("2. Metros a centímetros")
+print("3. Celsius para Fahrenheit")
+print("4. Fahrenheit para Celsius")
+print("5. sair ") 
 
-if escolha =='3':
-    sair()
+escolha = input("Escolha uma opção: ")
+
+valor = float(input('Digite um valor: '))
+
+if escolha == '1':
+    result = ConvertorMedidas.centimetros_para_metros(valor)
 elif escolha == '2':
-    from conversor_temperaturas import conversorTemperaturas
-elif escolha == '1' :
-    from conversor_medidas import ConvertorMedidas
-else :
-    print("vai tomar no cu, é só seguir a regras")
+    result = ConvertorMedidas.metros_para_centimetros(valor)
+elif escolha == '3':
+    result = ConversorTemperaturas.celsius_para_fahrenheit(valor)
+elif escolha == '4':
+    result = ConversorTemperaturas.fahrenheit_para_celsius(valor)
+else:
+    print("Encerrando o programa...")
+    
+print("Resultado:", result)
